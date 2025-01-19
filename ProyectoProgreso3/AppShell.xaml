@@ -7,9 +7,7 @@
     Shell.FlyoutBehavior="Flyout"
     Title="ProyectoProgreso3">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <ShellContent Title="Registrar Usuario" ContentTemplate="{DataTemplate views:RegisterUserPage}" />
+    <ShellContent Title="Registrar Auto" ContentTemplate="{DataTemplate views:RegisterCarPage}" />
+    <ShellContent Title="Realizar Transacción" ContentTemplate="{DataTemplate views:TransactionPage}" />
 </Shell>

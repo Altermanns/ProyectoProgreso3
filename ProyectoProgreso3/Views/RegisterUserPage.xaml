@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoProgreso3.Views.NewPage1"
+             Title="NewPage1">
+    
+    <StackLayout Padding="20" Spacing="15">
+        <Label Text="Nombre" FontSize="Medium" />
+        <Entry Placeholder="Ingresa tu nombre" Text="{Binding Nombre}" />
+
+        <Label Text="Correo" FontSize="Medium" />
+        <Entry Placeholder="Ingresa tu correo" Text="{Binding Correo}" Keyboard="Email" />
+
+        <Label Text="Fecha de Nacimiento" FontSize="Medium" />
+        <DatePicker Date="{Binding FechaNacimiento}" />
+
+        <Button Text="Registrar Usuario"
+                Command="{Binding RegistrarVendedorCommand}" />
+    </StackLayout>
+    
+</ContentPage>

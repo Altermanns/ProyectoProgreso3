@@ -15,9 +15,13 @@ namespace ProyectoProgreso3.Services
         public DatabaseService(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
+
+            // Crear tablas para Usuario y Auto
             _database.CreateTableAsync<Usuario>().Wait();
+            _database.CreateTableAsync<Auto>().Wait();
         }
 
+        // Métodos para Usuarios
         public Task<List<Usuario>> GetVendedoresAsync()
         {
             return _database.Table<Usuario>().ToListAsync();
@@ -34,6 +38,25 @@ namespace ProyectoProgreso3.Services
         public Task<int> DeleteVendedorAsync(Usuario vendedor)
         {
             return _database.DeleteAsync(vendedor);
+        }
+
+        // Métodos para Autos
+        public Task<List<Auto>> GetAutosAsync()
+        {
+            return _database.Table<Auto>().ToListAsync();
+        }
+
+        public Task<int> SaveAutoAsync(Auto auto)
+        {
+            if (auto.IdAuto != 0)
+                return _database.UpdateAsync(auto);
+            else
+                return _database.InsertAsync(auto);
+        }
+
+        public Task<int> DeleteAutoAsync(Auto auto)
+        {
+            return _database.DeleteAsync(auto);
         }
     }
 }
